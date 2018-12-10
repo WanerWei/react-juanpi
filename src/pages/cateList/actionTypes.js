@@ -1,0 +1,1 @@
+export const GET_CATELIST_INFO = 'cateList/get_cateList_info'

@@ -1,12 +1,23 @@
 import React from 'react';
+// 虚拟DOM
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// 路由
+import { BrowserRouter } from 'react-router-dom'
+// 状态管理
+import { Provider } from 'react-redux'
+import store from './store'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import 'styles/reset.css'
+import 'styles/animate.css'
+
+ReactDOM.render(
+    <Provider store={ store }>
+        <BrowserRouter>
+            <App></App>
+        </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+
+)

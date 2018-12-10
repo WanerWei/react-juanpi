@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { Main } from 'pages/main'
+import  SignInContainer from 'pages/profile/views/signIn/SignInContainer'
+import { SearchContainer as Search }  from 'pages/search'
+import  { CateContainer as Cate } from 'pages/cate'
+import  { DetailContainer as GoodDetail } from 'pages/detail'
+import  { CartContainer as Cart } from 'pages/cart'
+import  { BrandContainer as Brand } from 'pages/brandSpecialSale'
+
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Switch>
+        <Redirect exact from="/" to="/home" />
+        <Route  path="/home" component={ Main } />
+        {/* <Route  path="/home" component={ Main } /> */}
+        <Route path="/user/signIn" component= { SignInContainer } />
+        <Route path="/search" component= { Search } />
+        <Route path="/cateDetail/:id" component= { Cate } />
+        <Route path="/goodDetail/:id" component= { GoodDetail } />
+        <Route path="/cart" component= { Cart } />
+        <Route path="/brandSpecialSale" component= { Brand } />
+      </Switch>
     );
   }
 }
